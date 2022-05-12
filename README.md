@@ -53,4 +53,8 @@ contract coinflipAttack {
         coinFlipAttack.flip(side);
     }
 }
+
+> contract.address
+< '0xb13583134DA43E7aAeE1a8E2d1BaFb8Bc03A10d7'
+> await contract.consecutiveWins()    ( Calling this function 10 times )
 ```
